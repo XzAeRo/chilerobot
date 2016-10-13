@@ -1,8 +1,7 @@
 import praw
 import settings
-from scrappers import ElMostrador
+from scrappers import elmostrador
 import os, pprint
-import markdown
 
 def main():
     user_agent = ("User-Agent: python:cl.vgr.chilerobot:v1.0.0 (by /u/XzAeRosho) github.com/xzaero/chilerobot")
@@ -25,8 +24,8 @@ def process_submission(submission):
     supported_domains = ['elmostrador.cl']
 
     if submission.domain in supported_domains:
-        print(settings.REPLY_TEMPLATE.format('Titulo','Cuerpo'))
-        submission.reply(settings.REPLY_TEMPLATE.format('Titulo','Cuerpo'))
+        parser = elmostrador.Parser(submission.url)
+        submission.reply(parser.parse() + settings.SIGNATURE_TEMPLATE)
 
 
 if __name__ == '__main__':

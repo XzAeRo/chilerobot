@@ -5,8 +5,10 @@ click==6.6
 cryptography==1.5.2
 cssselect==0.9.2
 decorator==4.0.10
+html2text==2016.9.19
 idna==2.1
 lxml==3.6.4
+Markdown==2.6.7
 parsel==1.0.3
 praw==4.0.0b20
 prawcore==0.2.1
